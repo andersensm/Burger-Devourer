@@ -1,5 +1,5 @@
-var app = require("express")
+var express = require("express")
 var burgerModel = require("../models/burger.js")
 
-
-Create the `router` for the app, and export the `router` at the end of your file.
+console.log("working!")
+// Create the `router` for the app, and export the `router` at the end of your file.
