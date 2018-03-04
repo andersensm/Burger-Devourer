@@ -3,10 +3,42 @@
 <head>
 	<meta charset="UTF-8">
 		<link rel="stylesheet" href="assets/css/burger_style.css" type="text/css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/slate/bootstrap.min.css">
 		<title>Burgers!</title>
 		<script src="https://code.jquery.com/jquery.js"></script>
 	</head>
 	<body>
-		<img src="./assets/img/burger.jpg" alt="">
+		<div class="container">
+			<div class="jumbotron text-center">
+				<img class="center" class="rounded" src="./assets/img/burger.jpg" alt="">
+				<h1>BURGER CORRAL</h1>
+				<div class="row">
+					<div class="col-4" id="addBurger">
+						<p>Test</p>
+					</div>
+					<div class="col-2" id="addBurgerButton">
+						<p>Test</p>
+					</div>
+					<div class="col-6" id="deleteBurger">
+						<p>Test2</p>
+					</div>
+				</div>
+				<hr>
+				<form>
+					<div class="form-group">
+						<label for="exampleTextarea">Burger Name</label>
+						<div class="row">
+							<div class="col-3">
+							</div>
+							<textarea class="form-control col-6" id="burgerTextArea" rows="3"></textarea>
+							<div class="col-3">
+							</div>
+						</div>
+					</div>
+					<button type="submit" id="submit">Submit</button>
+				</form>
+				<p>Enter a burger name you want to eat it, click the 'Submit' button</p>
+			</div>
+		</div>
 	</body>
 </html>
