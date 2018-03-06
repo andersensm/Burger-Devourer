@@ -5,23 +5,16 @@
     <div class="row">
       <div class="col-4" id="addBurger">
         <ul>
-          {{#each burger}}
+          {{#each burgers}}
             {{#unless devourer}}
               {{> devourer=false}}
             {{/unless}}
           {{/each}}
         </ul>
       </div>
-      <div class="col-4" id="addBurger">
-        <ul>
-          {{#each burger devourer button}}
-              {{> burger devourer button}}
-          {{/each}}
-        </ul>
-      </div>
       <div class="col-6" id="deleteBurger">
         <ul>
-          {{#each burger}}
+          {{#each burgers}}
             {{#if devourer}}
               {{> devourer=true}}
             {{/if}}
