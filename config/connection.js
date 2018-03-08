@@ -1,9 +1,8 @@
 var mySQL = require("mysql");
-var dotEnv = require("dotenv").config();
+require("dotenv").config();
 
 var connection = mySQL.createConnection({
   host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
   user: process.env.DB_USER,
   password: process.env.DB_PW,
   database: "burgers_db"

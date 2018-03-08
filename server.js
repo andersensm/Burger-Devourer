@@ -1,18 +1,22 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var exphbs = require("express-handlebars");
+
 var PORT = process.env.PORT || 3000;
 var app = express();
-var routes = require("./controllers/burgers_controller.js");
 
-app.use(express.static("public"));
+
+app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
-app.engine("handlebars", exphbs({ defaultLayout: "main"}));
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-app.use(routes);
+var router = require("./controllers/burgersController.js");
+
+app.use("/", router);
 
 app.listen(PORT, function () {
   console.log("Listening on:" + PORT)
