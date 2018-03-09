@@ -3,18 +3,34 @@
     <img class="center" class="rounded" src="./assets/img/burger.jpg" alt="burger">
     <h1>BURGER CORRAL</h1>
     <div class="row">
-      <div class="col-4" id="addBurger">
-        <ul>
+      <div class="col-6">
+        <div class="row">
           {{#each brgs}}
-          <li>
-            <p>
-              {{this.id}}. {{this.burger_name}}
-              <button data-planid="{{this.id}}" class="delplan">Devourer!</button>
-            </p>
-          </li>
-          {{/each}}
-        </ul>
+            {{#unless this.devoured}}
+          <div class="col-6" >
+            <p>{{this.id}}. {{this.burger_name}}</p>
+          </div>
+          <div class="col-6">
+              <button type="submit" id="devBurger" data-id="{{this.id}}" value="{{this.id}}" data-devoured="{{this.devoured}}">Devour IT!</button>
+          </div>
+          {{/unless}}
+        {{/each}}
+        </div>
       </div>
+      <div class="col-6">
+        <div class="row">
+          {{#each brgs}}
+          {{#if this.devoured}}
+          <input type="text" placeholder="{{this.id}}. {{this.burger_name}}" readonly>
+          {{/if}}
+          {{/each}}
+
+        </div>
+
+
+
+      </div>
+
       <!-- <div class="col-6" id="deleteBurger">
         <ul>
 
