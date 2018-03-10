@@ -9,5 +9,57 @@
 	</head>
 	<body>
 		{{{ body }}}
+
+		<script type="text/javascript">
+
+			$(".delburger").on("click", function() {
+				var id = $(this).data("burgerid");
+				// Send the DELETE request.
+				$.ajax("/api/burger/" + id, {
+					type: "DELETE"
+				}).then(
+					function() {
+						console.log("deleted id: ", id);
+						// Reload the page to get the updated list
+						location.reload();
+					}
+				);
+			});
+
+			$("#addBurger").on("click", function() {
+
+				var newBurgerType = {
+					burger_name: $("#newBurger").val().trim()
+				};
+					// Send the POST request.
+					$.ajax("/api/burger", {
+						type: "POST",
+						data: newBurgerType
+					}).then(
+						function() {
+
+							// Reload the page to get the updated list
+							location.reload();
+						})
+			});
+
+			$("#devour").on("click", function() {
+				var id = $(this).data("burgerid");
+				var devourBurger = {
+					devoured: true
+				};
+				// Send the PUT request.
+				$.ajax("/api/burger/" + id, {
+					type: "PUT",
+					data: devourBurger
+				}).then(
+					function() {
+
+						// Reload the page to get the updated list
+						location.reload();
+					}
+				);
+			});
+		</script>
 	</body>
 </html>

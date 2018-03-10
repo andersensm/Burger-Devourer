@@ -6,51 +6,33 @@
       <div class="col-6">
         <div class="row">
           {{#each brgs}}
-            {{#unless this.devoured}}
-          <div class="col-6" >
-            <p>{{this.id}}. {{this.burger_name}}</p>
+            {{#unless devoured}}
+          <div class="col-6">
+            {{this.id}}. {{this.burger_name}}
           </div>
           <div class="col-6">
-              <button type="submit" id="devBurger" data-id="{{this.id}}" value="{{this.id}}" data-devoured="{{this.devoured}}">Devour IT!</button>
+            <button data-burgerid="{{this.id}}" class="btn btn-success" id="devour">Devour it!</button>
+            <button data-burgerid="{{this.id}}" class="delburger btn btn-danger">Remove</button>
           </div>
           {{/unless}}
         {{/each}}
         </div>
       </div>
       <div class="col-6">
-        <div class="row">
           {{#each brgs}}
-          {{#if this.devoured}}
-          <input type="text" placeholder="{{this.id}}. {{this.burger_name}}" readonly>
-          {{/if}}
+            {{#if devoured}}
+                <p>{{this.id}}. {{this.burger_name}}
+                <button data-burgerid="{{this.id}}" class="delburger btn btn-danger">Remove</button></p>            
+            {{/if}}
           {{/each}}
-
-        </div>
-
-
-
       </div>
-
-      <!-- <div class="col-6" id="deleteBurger">
-        <ul>
-
-        </ul>
-      </div> -->
     </div>
     <hr>
-    <form>
+    <form class="text-center">
       <div class="form-group">
-        <label for="exampleTextarea">Burger Name</label>
-        <div class="row">
-          <div class="col-3">
-          </div>
-          <textarea class="form-control col-6" id="burgerTextArea" rows="3"></textarea>
-          <div class="col-3">
-          </div>
-        </div>
+        <textarea class="form-control" id="newBurger" rows="3" placeholder="Burger Name"></textarea>
       </div>
-      <button type="submit" id="submit">Submit</button>
+      <button type="submit" id="addBurger" class="btn btn-primary">Add</button>
     </form>
-    <p>Enter a burger name you want to eat it, click the 'Submit' button</p>
   </div>
 </div>
